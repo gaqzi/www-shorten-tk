@@ -2,7 +2,7 @@ WWW::Shorten::TK version 0.01
 ===============================
 
 WWW::Shorten::isgd is a WWW::Shorten subclass offering access to
-the Tweak.tk API.
+the Tweak.tk API. I made this module to use it with Twirssi.com :)
 
 This module is basically a rewrite of WWW::Shorten::isgd by Brandon Gilmore
 to conform to the Tweak.tk API.

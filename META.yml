@@ -1,6 +1,6 @@
 ---
 name: WWW-Shorten-TK
-version: 0.01
+version: 0.02
 author:
   - Björn Andersson <ba@sanitarium.se>
 abstract: Perl interface to tweak.tk
@@ -14,5 +14,5 @@ build_requires:
 provides:
   WWW::Shorten::TK:
     file: lib/WWW/Shorten/TK.pm
-    version: 0.01
+    version: 0.02
 generated_by: vim

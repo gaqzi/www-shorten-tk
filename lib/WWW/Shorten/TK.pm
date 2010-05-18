@@ -24,6 +24,7 @@ access to the free service hosted at tweak.tk.
 use strict;
 use warnings;
 use Carp;
+use URI::Escape;
 
 use base qw/WWW::Shorten::generic Exporter/;
 
@@ -44,7 +45,7 @@ sub makeashorterlink ($)
     my $url = shift or croak 'No URL passed to makeashorterlink';
     my $ua  = __PACKAGE__->ua();
 
-    my $res = $ua->get("http://api.dot.tk/tweak/shorten?long=$url");
+    my $res = $ua->get('http://api.dot.tk/tweak/shorten?long='. uri_escape($url));
     if ($res->code == 200) {
         if ($res->content =~ m!^(http://\w+\.tk)!) {
             $1 =~ s/(\s+)$//;
@@ -72,7 +73,7 @@ sub makealongerlink ($)
     # really, I should leave this logic to the user
     return undef unless ($url =~ m!^http://\w+\.tk!i);
 
-    my $res = $ua->get("http://api.dot.tk/tweak/lengthen?shortname=$url");
+    my $res = $ua->get('http://api.dot.tk/tweak/lengthen?shortname='. uri_escape($url));
     unless ($res->code == 200) {
         $ERROR = $res->content;
         return $res->code;
